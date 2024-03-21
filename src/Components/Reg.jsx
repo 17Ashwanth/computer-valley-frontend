@@ -13,6 +13,7 @@ function Reg() {
     gender:"",
     password:""
   })
+  console.log(userData);
 
   const navigate = useNavigate()
 
@@ -91,9 +92,43 @@ function Reg() {
                 <Form.Group style={{width:'100%'}} className=" ms-4 mb-3" controlId="exampleForm.ControlInput1">
                   <Form.Control value={userData.address} onChange={(e)=>setUserData({...userData,address:e.target.value})} name='address'  type="text" placeholder="Enter Your Address" />
                 </Form.Group>
+
                 <Form.Group style={{width:'100%'}} className=" ms-4 mb-3" controlId="exampleForm.ControlInput1">
-                  <Form.Control value={userData.gender} onChange={(e)=>setUserData({...userData,gender:e.target.value})} name='gender'  type="text" placeholder="Enter Your Gender" />
+                  <Form.Label className='text-white'>Gender</Form.Label>
+                  <div>
+                    <Form.Check className='text-white'
+                      inline
+                      label="Male"
+                      type="radio"
+                      id="male"
+                      name="gender"
+                      value="male"
+                      checked={userData.gender === "male"}
+                      onChange={(e)=>setUserData({...userData,gender:e.target.value})}
+                    />
+                    <Form.Check className='text-white'
+                      inline
+                      label="Female"
+                      type="radio"
+                      id="female"
+                      name="gender"
+                      value="female"
+                      checked={userData.gender === "female"}
+                      onChange={(e)=>setUserData({...userData,gender:e.target.value})}
+                    />
+                    <Form.Check className='text-white'
+                      inline
+                      label="Other"
+                      type="radio"
+                      id="other"
+                      name="gender"
+                      value="other"
+                      checked={userData.gender === "other"}
+                      onChange={(e)=>setUserData({...userData,gender:e.target.value})}
+                    />
+                  </div>
                 </Form.Group>
+                
                 <Form.Group style={{width:'100%'}} className=" ms-4 mb-3" controlId="exampleForm.ControlInput1">
                   <Form.Control value={userData.password} onChange={(e)=>setUserData({...userData,password:e.target.value})}  type="password" placeholder="Enter Your Password" />
                 </Form.Group>
