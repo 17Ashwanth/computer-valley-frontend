@@ -41,7 +41,7 @@ function Reg() {
       });
     } else if(!genderPattern.test(gender)){
       Swal.fire({
-        title: "Gender should only contain letters",
+        title: "Please Select Your Gender",
         icon: "info",
         showConfirmButton: false,
         timer: 1500
