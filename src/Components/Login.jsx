@@ -1,12 +1,16 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Form } from 'react-bootstrap';
 import reg from '../Assests/login.svg'
 import { loginAPI } from '../service/allAPI';
 import Swal from 'sweetalert2';
+import { isAuthTokenContext } from '../context/ContextShare';
+
 
 
 function Login() {
+  const {isAuthenticated, setIsAuthenticated} =useContext(isAuthTokenContext)
+
   const [userData, setUserData] = useState({
     username:"",
     password:""
@@ -48,8 +52,9 @@ function Login() {
             icon: "success",
             showConfirmButton: false,
             timer: 1500
-          });          setUserData({username:"",password:""})
-          navigate('/home')     
+          });setUserData({username:"",password:""})
+          navigate('/home')
+          setIsAuthenticated(true)     
       }
       else
       {
@@ -76,11 +81,11 @@ function Login() {
 
                   <Form>
 
-                        <Form.Group style={{width:'100%'}} className=" ms-4 mb-3" controlId="exampleForm.ControlInput1">
+                        <Form.Group style={{width:'100%'}} className="  mb-3" controlId="exampleForm.ControlInput1">
                         <Form.Control  value={userData.username} onChange={(e)=>setUserData({...userData,username:e.target.value})}   type="text" placeholder="Enter Your Username" />
                         </Form.Group>
 
-                        <Form.Group style={{width:'100%'}} className=" ms-4 mb-3" controlId="exampleForm.ControlInput1">
+                        <Form.Group style={{width:'100%'}} className="  mb-3" controlId="exampleForm.ControlInput2">
                         <Form.Control value={userData.password} onChange={(e)=>setUserData({...userData,password:e.target.value})}  type="password" placeholder="Enter Your Password" />
                         </Form.Group>
 

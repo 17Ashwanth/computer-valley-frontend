@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { Form } from 'react-bootstrap';
+import { Form  } from 'react-bootstrap';
 import reg from '../Assests/login.svg'
 import { registerAPI } from '../service/allAPI';
 import Swal from 'sweetalert2';
@@ -13,7 +13,6 @@ function Reg() {
     gender:"",
     password:""
   })
-  console.log(userData);
 
   const navigate = useNavigate()
 
@@ -86,14 +85,14 @@ function Reg() {
             <div className="d-flex align-items-center justify-content-center flex-column">
               <h1 className='text-white mb-4'>USER REGISTER</h1>
               <Form>
-                <Form.Group style={{width:'100%'}} className=" ms-4 mb-3" controlId="exampleForm.ControlInput1">
+                <Form.Group style={{width:'100%'}} className="  mb-3" controlId="exampleForm.ControlInput1">
                   <Form.Control value={userData.username} onChange={(e)=>setUserData({...userData,username:e.target.value})} name='username'  type="text" placeholder="Enter Your Username" />
                 </Form.Group>
-                <Form.Group style={{width:'100%'}} className=" ms-4 mb-3" controlId="exampleForm.ControlInput1">
-                  <Form.Control value={userData.address} onChange={(e)=>setUserData({...userData,address:e.target.value})} name='address'  type="text" placeholder="Enter Your Address" />
+                <Form.Group style={{width:'100%'}} className=" mb-3" controlId="exampleForm.ControlInput5">
+                <Form.Control as="textarea" rows={3} value={userData.address} onChange={(e)=>setUserData({...userData,address:e.target.value})}  name='address' placeholder="Enter Your Address" />
                 </Form.Group>
 
-                <Form.Group style={{width:'100%'}} className=" ms-4 mb-3" controlId="exampleForm.ControlInput1">
+                <Form.Group style={{width:'100%'}} className="  mb-3" controlId="exampleForm.ControlInput3">
                   <Form.Label className='text-white'>Gender</Form.Label>
                   <div>
                     <Form.Check className='text-white'
@@ -129,7 +128,7 @@ function Reg() {
                   </div>
                 </Form.Group>
                 
-                <Form.Group style={{width:'100%'}} className=" ms-4 mb-3" controlId="exampleForm.ControlInput1">
+                <Form.Group style={{width:'100%'}} className="  mb-3" controlId="exampleForm.ControlInput4">
                   <Form.Control value={userData.password} onChange={(e)=>setUserData({...userData,password:e.target.value})}  type="password" placeholder="Enter Your Password" />
                 </Form.Group>
                 <div className='d-flex justify-content-between ms-5'>

@@ -11,3 +11,14 @@ export const loginAPI = async (users)=>{
     return await commonAPI('POST',`${BASE_URL}/user/login`,users,"")
   
 }
+
+// logic to add user details
+export const addUserAPI = async (reqBody,reqHeader)=>{
+    return await commonAPI('POST',`${BASE_URL}/user/add`,reqBody,reqHeader)
+}
+
+//edit profile 
+export const editProfileAPI = async (reqBody, reqHeader)=>{
+    // id is passed as path parameter
+    return await commonAPI('PUT',`${BASE_URL}/user/edit/`,reqBody,reqHeader)
+}
